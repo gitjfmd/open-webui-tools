@@ -30,7 +30,7 @@ Dive into a growing arsenal of tools designed to enhance your Open WebUI experie
 These tools run directly in OpenWebUI's Python environment and can be easily added through the Admin Panel. They empower your assistants with new capabilities.
 
 **📦 Installation:**
-1.  Navigate to **Admin Panel** → **Tools** → **Create Tool**.
+1.  Navigate to **Workspace** → **Tools** → **Create Tool**. or Navigate to **Admin Panel** → **External Tools** → **Create Tool**. Depends on the tool. Follow the guides for each tool. 
 2.  Copy and paste the Python code from a tool's `.py` file in this repo.
 3.  Save, enable it for your models, and you're done!
 

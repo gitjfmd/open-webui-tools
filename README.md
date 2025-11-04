@@ -41,7 +41,7 @@ These tools run directly in OpenWebUI's Python environment and can be easily add
 - `Data Visualizer` - Generate charts and graphs from data.
 
 *Each tool includes a detailed README with specific setup and usage instructions.*
-**[Browse all Workspace Tools →](./tools/workspace-tools)*
+**[Browse all Workspace Tools →](./Workspace-tools)*
 
 ---
 
@@ -56,7 +56,7 @@ Connect your OpenWebUI instance to the world. These integrations give your AI ac
 - **Data Services:** Real-time weather, stock prices, and news feeds.
 
 *Most integrations require API keys, which are securely managed via environment variables.*
-**[Browse all API Integrations →](./tools/api-integrations)*
+**[Browse all API Integrations →](./Workspace-tools)*
 
 ---
 

@@ -1,0 +1,39 @@
+name: CI
+
+# Server-side secret scan + lightweight gates for gitjfmd repos.
+# Branch protection (main or dev) requires the `Gitleaks — detect secrets`
+# check from this workflow. Central-command source-of-truth lives in
+# policies-procedures/compliance/policies/SECRET-SCANNING.md.
+
+on:
+  pull_request:
+    branches: [main, dev, master]
+  push:
+    branches: [main, dev, master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'push' || github.event.action == 'synchronize' }}
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  gitleaks:
+    name: Gitleaks — detect secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # Full history so the action can resolve the base..head range.
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Pin a modern build so .gitleaks.toml top-level [[allowlists]]
+          # are honored (>=8.25).
+          GITLEAKS_VERSION: "8.28.0"

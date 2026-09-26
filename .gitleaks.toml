@@ -1,0 +1,3 @@
+# Gitleaks configuration — default ruleset, no allowlist overrides.
+[extend]
+useDefault = true
